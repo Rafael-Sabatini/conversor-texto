@@ -6,15 +6,20 @@ import LineBreakConverter from './components/LineBreakConverter';
 import CNPJCPFConverter from './components/CNPJCPFConverter';
 import SQLConverter from './components/SQLConverter';
 import HomeScreen from './components/HomeScreen';
+import SymbolRemover from './components/SymbolRemover';
+import TextComparator from './components/TextComparator';
 
 function App() {
+  
   const componentRender = [
     { id: 1, name: "CasingConverter" },
     { id: 2, name: "SpaceRemoval" },
     { id: 3, name: "LineBreakConverter" },
     { id: 4, name: "CNPJCPFConverter" },
     { id: 5, name: "SQLConverter" },
-    { id: 6, name: "HomeScreen" },
+    { id: 6, name: "SymbolRemover" },
+    { id: 7, name: "TextComparator" },
+    { id: 8, name: "HomeScreen" },
   ];
 
   // Qual componente será renderizado
@@ -29,6 +34,8 @@ function App() {
   const lineBreakChange = () => setChangeComponent("LineBreakConverter");
   const cnpjChange = () => setChangeComponent("CNPJCPFConverter");
   const sqlChange = () => setChangeComponent("SQLConverter");
+  const symbolChange = () => setChangeComponent("SymbolRemover");
+  const textCompareChange = () => setChangeComponent("TextComparator");
   const homeChange = () => setChangeComponent("HomeScreen");
 
   return (
@@ -66,14 +73,13 @@ function App() {
         </button>
       )}
 
-      {/* SIDEBAR (fixed) */}
       <div
         className={`
           fixed top-0 left-0 z-40
           h-screen w-[320px]
           bg-black
           px-4 py-6
-          shadow-md
+          drop-shadow-lg
           transition-transform duration-300
           ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
         `}
@@ -208,13 +214,50 @@ function App() {
               >
                 Formatar SQL
               </a>
+
+              <a
+                href="#!"
+                onClick={symbolChange}
+                className="
+                  text-xl 
+                  font-semibold 
+                  block 
+                  px-2 py-2 rounded-md 
+                  hover:translate-x-2 
+                  hover:bg-blue-800
+                  transition-all 
+                  duration-300 
+                  ease-in-out
+                  mt-3
+                "
+              >
+                Remover Símbolos
+              </a>
+
+              <a
+                href="#!"
+                onClick={textCompareChange}
+                className="
+                  text-xl 
+                  font-semibold 
+                  block 
+                  px-2 py-2 rounded-md 
+                  hover:translate-x-2 
+                  hover:bg-blue-800
+                  transition-all 
+                  duration-300 
+                  ease-in-out
+                  mt-3
+                "
+              >
+                Comparador de Textos
+              </a>
             </li>
           </ul>
         </aside>
       </div>
 
       {/* CONTEÚDO PRINCIPAL */}
-      {/* Repare que aplicamos margin-left condicional para "empurrar" o conteúdo */}
       <div
         className={`
           transition-all duration-300
@@ -228,6 +271,8 @@ function App() {
           {changeComponent === "LineBreakConverter" && <LineBreakConverter />}
           {changeComponent === "CNPJCPFConverter" && <CNPJCPFConverter />}
           {changeComponent === "SQLConverter" && <SQLConverter />}
+          {changeComponent === "SymbolRemover" && <SymbolRemover />}
+          {changeComponent === "TextComparator" && <TextComparator />}
           {changeComponent === "HomeScreen" && <HomeScreen />}
         </div>
       </div>
