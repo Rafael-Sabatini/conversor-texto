@@ -3,23 +3,20 @@ import { Bounce, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function CasingConverter() {
+
   const [text, setText] = useState("");
-  const [activeState, setActiveState] = useState(true); 
-  // true => UPPERCASE, false => lowercase
+  const [activeState, setActiveState] = useState(true);
 
   const contentEditableRef = useRef(null);
 
-  // Convert text based on checkbox state
   const handleConversion = (value) => {
     return activeState ? value.toUpperCase() : value.toLowerCase();
   };
 
-  // Toggle the checkbox
   const handleActive = () => {
     setActiveState((prev) => !prev);
   };
 
-  // Copy the converted text
   const copyText = () => {
     const convertedText = handleConversion(text);
     if (convertedText.trim() === "") {
@@ -31,8 +28,12 @@ function CasingConverter() {
   };
 
   const clearText = () => {
-    if (contentEditableRef.current) {
-      contentEditableRef.current.innerText = "";
+    if (contentEditableRef.current.value == "") {
+      toast.warn("Sem texto para limpar")
+      return;
+    }
+    else{
+      contentEditableRef.current.value = "";
       toast.success("Texto limpo com sucesso!");
       setText("");
     }
@@ -53,8 +54,7 @@ function CasingConverter() {
             hover:translate-x-[-0.75rem]
             ease-in-out
             duration-300
-          "
-        >
+          ">
           Minúsculo
         </span>
         <input
@@ -88,6 +88,7 @@ function CasingConverter() {
             peer-checked:bg-blue-600
           "
         />
+
         <span
           className="
             ml-3 
@@ -97,47 +98,56 @@ function CasingConverter() {
             hover:translate-x-3
             ease-in-out
             duration-300
-          "
-        >
+          ">
           Maiúsculo
         </span>
       </label>
 
-      <span
-        ref={contentEditableRef}
-        contentEditable="true"
-        onInput={(e) => setText(e.currentTarget.textContent)}
+      <div 
         className="
-          bg-slate-200 
-          box-border 
+          flex
+          flex-row
+          w-full
+          gap-4
+        "
+        >
+        <textarea
+          placeholder="Digite seu texto aqui"
+          ref={contentEditableRef}
+          onInput={(e) => setText(e.target.value)}
+          className="
+          bg-slate-200
           rounded
           p-3
           text-black 
           w-full
           max-w-screen-sm
-          min-h-[50px]
-          break-all
+          h-64
           drop-shadow-lg
-        "
-      />
-
-      <br />
-
-      <div
-        className="
-          bg-slate-200 
-          rounded
-          w-full
-          max-w-screen-sm
-          p-4
-          text-black
+          whitespace-pre-wrap
           break-all
-          flex
-          flex-col
-          mt-2
+          resize-none
         "
-      >
-        <div className="flex-1">{handleConversion(text)}</div>
+        />
+
+        <textarea 
+          disabled
+          placeholder="Texto convertido"
+          className="
+            bg-slate-300
+            rounded
+            p-3
+            text-black 
+            w-full
+            max-w-screen-sm
+            h-64
+            drop-shadow-lg
+            whitespace-pre-wrap
+            break-all
+            resize-none
+          "
+          value={handleConversion(text)}
+        />
       </div>
 
       <div
@@ -145,11 +155,9 @@ function CasingConverter() {
           flex
           flex-row
           w-full
-          max-w-screen-sm
           mt-5
           justify-end
-        "
-      >
+        ">
         <button
           onClick={copyText}
           className="
@@ -166,16 +174,14 @@ function CasingConverter() {
             items-center
             gap-1
             mr-5
-          "
-        >
+          ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-5 h-5"
-          >
+            className="w-5 h-5">
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -194,7 +200,6 @@ function CasingConverter() {
               3.375 0 0 0-3.375-3.375H9.75"
             />
           </svg>
-          Copiar
         </button>
 
         <button
@@ -212,16 +217,14 @@ function CasingConverter() {
             flex
             items-center
             gap-1
-          "
-        >
+          ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-5 h-5"
-          >
+            className="w-5 h-5">
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -239,7 +242,6 @@ function CasingConverter() {
               .621.504 1.125 1.125 1.125Z"
             />
           </svg>
-          Limpar
         </button>
       </div>
 
@@ -251,6 +253,8 @@ function CasingConverter() {
         closeOnClick
         theme="dark"
         transition={Bounce}
+        pauseOnFocusLoss={false}
+        pauseOnHover={false}
       />
     </div>
   );

@@ -39,7 +39,7 @@ function App() {
   const homeChange = () => setChangeComponent("HomeScreen");
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-t from-slate-800 to-slate-950 text-white">
+    <div className="relative p-0 m-0 min-h-screen bg-gradient-to-t from-slate-800 to-slate-950 text-white">
       {/* Botão para abrir o sidebar (aparece só quando sidebarOpen === false) */}
       {!sidebarOpen && (
         <button
@@ -49,11 +49,13 @@ function App() {
             bg-slate-700 text-white
             px-4 py-2
             rounded
-            hover:bg-slate-800
-            transition-colors
+            hover:rotate-180
+            hover:scale-110
+            transition-all
             z-50
             flex items-center
             gap-2
+            duration-500
           "
         >
           <svg
@@ -79,7 +81,8 @@ function App() {
           h-screen w-[320px]
           bg-black
           px-4 py-6
-          drop-shadow-lg
+          shadow-md
+          shadow-slate-800
           transition-transform duration-300
           ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
         `}
@@ -108,9 +111,11 @@ function App() {
               onClick={() => setSidebarOpen(false)}
               className="
                 p-2
-                rounded
-                hover:bg-gray-800
-                transition-colors
+                hover:scale-110
+                hover:text-red-600
+                transition-all
+                duration-500
+                text-lg
               "
             >
               X
@@ -265,7 +270,7 @@ function App() {
           p-5
         `}
       >
-        <div className="mt-10 min-h-screen">
+        <div className="min-h-screen">
           {changeComponent === "CasingConverter" && <CasingConverter />}
           {changeComponent === "SpaceRemoval" && <SpaceRemoval />}
           {changeComponent === "LineBreakConverter" && <LineBreakConverter />}

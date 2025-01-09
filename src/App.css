@@ -1,19 +1,17 @@
 /* <uniquifier>: Use a unique and descriptive class name */
 /* <weight>: Use a value from 300 to 800 */
 
+body{
+  padding: 0;
+  margin: 0;
+}
+
 #sidebar {
   font-family: "Open Sans", serif;
-  font-optical-sizing: auto;
-  font-weight: bold;
-  font-style: normal;
-  font-variation-settings: "wdth" 100;
 }
 
 body{
   font-family: "Open Sans", serif;
-  font-optical-sizing: auto;
-  font-weight: lighter;
-  font-style: normal;
 }
 
 .render_container{
