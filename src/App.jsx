@@ -23,7 +23,7 @@ function App() {
   ];
 
   // Qual componente será renderizado
-  const [changeComponent, setChangeComponent] = useState(componentRender[5].name);
+  const [changeComponent, setChangeComponent] = useState(componentRender[7].name);
 
   // Estado para controlar visibilidade da sidebar
   const [sidebarOpen, setSidebarOpen] = useState(true);
