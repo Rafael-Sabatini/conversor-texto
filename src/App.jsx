@@ -26,7 +26,7 @@ function App() {
   const [changeComponent, setChangeComponent] = useState(componentRender[7].name);
 
   // Estado para controlar visibilidade da sidebar
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   // Funções de troca de componente
   const casingChange = () => setChangeComponent("CasingConverter");
@@ -39,7 +39,7 @@ function App() {
   const homeChange = () => setChangeComponent("HomeScreen");
 
   return (
-    <div className="relative p-0 m-0 min-h-screen bg-gradient-to-t from-slate-800 to-slate-950 text-white">
+    <div className="relative p-0 m-0 min-h-screen max-h-full bg-gradient-to-t from-slate-800 to-slate-950 text-white">
       {/* Botão para abrir o sidebar (aparece só quando sidebarOpen === false) */}
       {!sidebarOpen && (
         <button
@@ -78,7 +78,7 @@ function App() {
       <div
         className={`
           fixed top-0 left-0 z-40
-          h-screen w-[320px]
+          h-screen w-74
           bg-black
           px-4 py-6
           shadow-md
@@ -90,7 +90,7 @@ function App() {
         id="sidebar"
       >
         <aside className="w-full">
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center justify-between">
             <a
               href="#!"
               onClick={homeChange}
@@ -110,6 +110,9 @@ function App() {
             <button
               onClick={() => setSidebarOpen(false)}
               className="
+                fixed
+                right-5
+                top-6
                 p-2
                 hover:scale-110
                 hover:text-red-600

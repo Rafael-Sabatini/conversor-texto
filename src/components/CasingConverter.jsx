@@ -3,7 +3,6 @@ import { Bounce, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function CasingConverter() {
-
   const [text, setText] = useState("");
   const [activeState, setActiveState] = useState(true);
 
@@ -28,19 +27,28 @@ function CasingConverter() {
   };
 
   const clearText = () => {
-    if (contentEditableRef.current.value == "") {
-      toast.warn("Sem texto para limpar")
+    if (contentEditableRef.current.value === "") {
+      toast.warn("Sem texto para limpar");
       return;
     }
-    else{
-      contentEditableRef.current.value = "";
-      toast.success("Texto limpo com sucesso!");
-      setText("");
-    }
+    contentEditableRef.current.value = "";
+    toast.success("Texto limpo com sucesso!");
+    setText("");
   };
 
   return (
-    <div className="flex flex-col justify-center items-center p-4">
+    <div
+      className="
+        container 
+        mx-auto 
+        px-4 
+        py-8
+        flex 
+        flex-col 
+        items-center 
+        justify-center
+      "
+    >
       <h1 className="text-4xl font-bold mb-5">Conversor de Letras</h1>
       <h2 className="text-lg mb-5">Selecione o tipo de conversão desejada:</h2>
 
@@ -54,7 +62,8 @@ function CasingConverter() {
             hover:translate-x-[-0.75rem]
             ease-in-out
             duration-300
-          ">
+          "
+        >
           Minúsculo
         </span>
         <input
@@ -66,7 +75,8 @@ function CasingConverter() {
         <div
           className="
             relative 
-            w-11 h-6 
+            w-11 
+            h-6 
             bg-gray-200 
             peer-focus:outline-none 
             rounded-full 
@@ -88,7 +98,6 @@ function CasingConverter() {
             peer-checked:bg-blue-600
           "
         />
-
         <span
           className="
             ml-3 
@@ -98,38 +107,43 @@ function CasingConverter() {
             hover:translate-x-3
             ease-in-out
             duration-300
-          ">
+          "
+        >
           Maiúsculo
         </span>
       </label>
 
+      {/* ÁREA DOS TEXTAREAS */}
       <div 
         className="
           flex
-          flex-row
+          flex-col
+          md:flex-row
           w-full
+          max-w-5xl
           gap-4
         "
-        >
+      >
+        {/* TEXTO DE ENTRADA */}
         <textarea
           placeholder="Digite seu texto aqui"
           ref={contentEditableRef}
           onInput={(e) => setText(e.target.value)}
           className="
-          bg-slate-200
-          rounded
-          p-3
-          text-black 
-          w-full
-          max-w-screen-sm
-          h-64
-          drop-shadow-lg
-          whitespace-pre-wrap
-          break-all
-          resize-none
-        "
+            bg-slate-200
+            rounded
+            p-3
+            text-black 
+            w-full
+            h-64
+            drop-shadow-lg
+            whitespace-pre-wrap
+            break-all
+            resize-none
+          "
         />
 
+        {/* TEXTO DE SAÍDA (CONVERTIDO) */}
         <textarea 
           disabled
           placeholder="Texto convertido"
@@ -139,7 +153,6 @@ function CasingConverter() {
             p-3
             text-black 
             w-full
-            max-w-screen-sm
             h-64
             drop-shadow-lg
             whitespace-pre-wrap
@@ -150,14 +163,17 @@ function CasingConverter() {
         />
       </div>
 
+      {/* BOTÕES AÇÕES */}
       <div
         className="
           flex
           flex-row
           w-full
+          max-w-5xl
           mt-5
           justify-end
-        ">
+        "
+      >
         <button
           onClick={copyText}
           className="
@@ -174,14 +190,16 @@ function CasingConverter() {
             items-center
             gap-1
             mr-5
-          ">
+          "
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-5 h-5">
+            className="w-5 h-5"
+          >
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -217,14 +235,16 @@ function CasingConverter() {
             flex
             items-center
             gap-1
-          ">
+          "
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-5 h-5">
+            className="w-5 h-5"
+          >
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
