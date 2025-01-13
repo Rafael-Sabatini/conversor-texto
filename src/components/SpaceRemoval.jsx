@@ -135,6 +135,7 @@ const SpaceRemoval = () => {
           whitespace-pre-wrap
           break-all
           resize-none
+          shadow-md shadow-slate-500
         "
         />
 
@@ -153,6 +154,7 @@ const SpaceRemoval = () => {
             whitespace-pre-wrap
             break-all
             resize-none
+            shadow-md shadow-slate-500
           "
           value={handleConversion(text)}
         />

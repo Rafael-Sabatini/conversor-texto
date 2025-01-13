@@ -39,14 +39,21 @@ function App() {
   const homeChange = () => setChangeComponent("HomeScreen");
 
   return (
-    <div className="relative p-0 m-0 min-h-screen max-h-full bg-gradient-to-t from-slate-800 to-slate-950 text-white">
+    <div 
+      className="
+        relative 
+        p-0 m-0 
+        min-h-screen max-h-full 
+        bg-gradient-to-t from-slate-100 to-slate-200 
+        text-black
+      ">
       {/* Botão para abrir o sidebar (aparece só quando sidebarOpen === false) */}
       {!sidebarOpen && (
         <button
           onClick={() => setSidebarOpen(true)}
           className="
             sticky top-4 left-4
-            bg-slate-700 text-white
+            bg-slate-500 text-white
             px-4 py-2
             rounded
             hover:rotate-180
@@ -83,6 +90,7 @@ function App() {
           px-4 py-6
           shadow-md
           shadow-slate-800
+          text-white
           transition-transform duration-300
           ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
         `}

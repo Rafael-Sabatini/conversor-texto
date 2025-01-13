@@ -31,11 +31,18 @@ const TextComparator = () => {
     <div className="flex flex-col justify-center align-center p-10">
       <button
         className="
+          relative
+          top-20
+          left-1
           bg-blue-500
           w-10
           rounded-lg
           p-2
           text-center
+          hover:bg-blue-400
+          hover:scale-110
+          transition-all
+          duration-300
         "
         onClick={toggleModal}
       >
@@ -62,17 +69,16 @@ const TextComparator = () => {
             fixed top-0 left-0 
             w-screen h-screen 
             flex items-center justify-center 
-            bg-bg
             z-50
           "
         >
           <div
             className="
-              bg-gradient-to-b from-slate-950 to-slate-800 
+              bg-slate-400 
               p-4 
               rounded-md 
               max-w-2xl
-              text-white
+              text-black
               relative
             "
           >
@@ -124,7 +130,7 @@ const TextComparator = () => {
         </div>
       )}
 
-      <h1 className=" mt-10 text-center text-2xl mb-10">
+      <h1 className=" mt-10 text-center text-4xl font-bold mb-10">
         Comparador de Textos
       </h1>
 
@@ -133,7 +139,7 @@ const TextComparator = () => {
         placeholder="Digite o primeiro texto aqui..."
         value={textOne}
         onChange={(e) => setTextOne(e.target.value)}
-        className="border rounded text-black p-2 w-full h-40 mb-4 resize-none"
+        className="bg-slate-200 border rounded text-black p-2 w-full h-40 mb-4 resize-none shadow-md shadow-slate-500"
       />
 
       {/* Segunda textarea */}
@@ -141,11 +147,11 @@ const TextComparator = () => {
         placeholder="Digite o segundo texto aqui..."
         value={textTwo}
         onChange={(e) => setTextTwo(e.target.value)}
-        className="border text-black rounded p-2 w-full h-40 mb-4 resize-none"
+        className="bg-slate-200 border text-black rounded p-2 w-full h-40 mb-4 resize-none shadow-md shadow-slate-500"
       />
 
       {/* Resultados da comparação */}
-      <span className="text-black p-2 border rounded min-h-[100px] break-all max-width-screen whitespace-break-spaces">
+      <span className="shadow-sm bg-slate-200 text-black p-2 border rounded min-h-[100px] break-all max-width-screen whitespace-break-spaces">
         {highlightedDiff}
       </span>
     </div>

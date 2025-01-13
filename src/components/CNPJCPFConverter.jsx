@@ -146,6 +146,7 @@ const CNPJCPFConverter = () => {
             whitespace-pre-wrap
             break-all
             resize-none
+            shadow-md shadow-slate-500
           "
         />
         <textarea
@@ -163,6 +164,7 @@ const CNPJCPFConverter = () => {
             whitespace-pre-wrap
             break-all
             resize-none
+            shadow-md shadow-slate-500
           "
           value={handleConversion(text)}
         />

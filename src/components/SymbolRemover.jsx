@@ -107,7 +107,7 @@ const SymbolRemover = () => {
       </label>
 
       {/* Textareas */}
-      <div className="flex flex-row w-full gap-4">
+      <div className="flex flex-row w-full gap-4 ">
         <textarea
           placeholder="Digite seu texto com símbolos aqui:"
           ref={contentEditableRef}
@@ -124,6 +124,7 @@ const SymbolRemover = () => {
             whitespace-pre-wrap
             break-all
             resize-none
+            shadow-md shadow-slate-500
           "
         />
         <textarea
@@ -141,6 +142,7 @@ const SymbolRemover = () => {
             whitespace-pre-wrap
             break-all
             resize-none
+            shadow-md shadow-slate-500
           "
           value={handleConversion(text)}
         />

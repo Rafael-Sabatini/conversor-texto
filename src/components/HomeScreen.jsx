@@ -8,7 +8,7 @@ const HomeScreen = () => {
         max-w-screen
         max-h-screen
         p-10
-        bg-slate-800
+        bg-slate-300
         rounded-md
         shadow-lg
         overflow-x-none

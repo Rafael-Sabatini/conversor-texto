@@ -69,6 +69,7 @@ const SQLConverter = () => {
               whitespace-pre-wrap
               break-all
               resize-none
+              shadow-md shadow-slate-500
             "
           />
 
@@ -88,6 +89,7 @@ const SQLConverter = () => {
               whitespace-pre-wrap
               break-all
               resize-none
+              shadow-md shadow-slate-500
             "
             value={handleConversion(text)}
           />
