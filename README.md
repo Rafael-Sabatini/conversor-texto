@@ -1,7 +1,5 @@
 # BEM VINDO!
 
----
-
 Este é um projeto desenvolvido com React + Vite + Tailwind e outras libs.
 
 O ponto desse projeto é desafiar minhas habilidades recém-adquiridas com React e Tailwind, com ajuda de alguns desenvolvedores da Soften Sistemas.
