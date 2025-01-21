@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import CharCounter from "./CharCounter";
 
 function CasingConverter() {
   const [text, setText] = useState("");
@@ -47,8 +48,7 @@ function CasingConverter() {
         flex-col 
         items-center 
         justify-center
-      "
-    >
+      ">
       <h1 className="text-4xl font-bold mb-5">Conversor de Letras</h1>
       <h2 className="text-lg mb-5">Selecione o tipo de conversão desejada:</h2>
 
@@ -62,8 +62,7 @@ function CasingConverter() {
             hover:translate-x-[-0.75rem]
             ease-in-out
             duration-300
-          "
-        >
+          ">
           Minúsculo
         </span>
         <input
@@ -107,14 +106,13 @@ function CasingConverter() {
             hover:translate-x-3
             ease-in-out
             duration-300
-          "
-        >
+          ">
           Maiúsculo
         </span>
       </label>
 
       {/* ÁREA DOS TEXTAREAS */}
-      <div 
+      <div
         className="
           flex
           flex-col
@@ -122,8 +120,7 @@ function CasingConverter() {
           w-full
           max-w-5xl
           gap-4
-        "
-      >
+        ">
         {/* TEXTO DE ENTRADA */}
         <textarea
           placeholder="Digite seu texto aqui"
@@ -143,9 +140,8 @@ function CasingConverter() {
             shadow-md shadow-slate-500
           "
         />
-
         {/* TEXTO DE SAÍDA (CONVERTIDO) */}
-        <textarea 
+        <textarea
           disabled
           placeholder="Texto convertido"
           className="
@@ -164,6 +160,9 @@ function CasingConverter() {
           value={handleConversion(text)}
         />
       </div>
+      <span className=" relative right-5 top-2 flex flex-row justify-start">
+          <CharCounter charCount={text.length} />
+      </span>
 
       {/* BOTÕES AÇÕES */}
       <div
@@ -174,8 +173,7 @@ function CasingConverter() {
           max-w-5xl
           mt-5
           justify-end
-        "
-      >
+        ">
         <button
           onClick={copyText}
           className="
@@ -192,16 +190,14 @@ function CasingConverter() {
             items-center
             gap-1
             mr-5
-          "
-        >
+          ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-5 h-5"
-          >
+            className="w-5 h-5">
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -237,16 +233,14 @@ function CasingConverter() {
             flex
             items-center
             gap-1
-          "
-        >
+          ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-5 h-5"
-          >
+            className="w-5 h-5">
             <path
               strokeLinecap="round"
               strokeLinejoin="round"

@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { format } from "sql-formatter";
+import CharCounter from "./CharCounter";
 
 const SQLConverter = () => {
   const [text, setText] = useState("");
@@ -12,12 +13,18 @@ const SQLConverter = () => {
     if (!value.trim()) return "";
 
     if (activeState) {
-      return format(value, {
-        language: "sql",
-        uppercase: true,
-      });
+      //? Tratamento de erro para converter a SQL
+      try {
+        return format(value, {
+          language: "sql",
+          uppercase: true,
+        });
+      } catch (error) {
+        toast.error("Erro ao formatar SQL");
+        return console.log(error);
+      }
     }
-    
+
     return value;
   };
 
@@ -50,7 +57,8 @@ const SQLConverter = () => {
     <div>
       <div className="flex flex-col justify-center items-center p-4">
         <h1 className="text-4xl font-bold mb-10">Formatar SQL</h1>
-
+        <h2 className="text2xl font-bold">IMPORTANTE!</h2>
+        <p className="mb-10 font-light">Infelizmente não funciona com Access, somente outros tipos de SQL</p>
         <div className="flex flex-row w-full gap-4">
           {/* Textarea de entrada */}
           <textarea
@@ -95,6 +103,10 @@ const SQLConverter = () => {
           />
         </div>
 
+        <span className=" relative right-5 top-2 flex flex-row justify-start">
+          <CharCounter charCount={text.length} />
+        </span>
+
         <div className="flex flex-row w-full mt-5 justify-end">
           {/* Botão para habilitar/desabilitar formatação */}
           <button
@@ -113,8 +125,7 @@ const SQLConverter = () => {
               items-center
               gap-1
               mr-5
-            "
-          >
+            ">
             {activeState ? "Desativar Formatação" : "Ativar Formatação"}
           </button>
 
@@ -135,8 +146,7 @@ const SQLConverter = () => {
               items-center
               gap-1
               mr-5
-            "
-          >
+            ">
             {/* Ícone */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -144,8 +154,7 @@ const SQLConverter = () => {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-5 h-5"
-            >
+              className="w-5 h-5">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -182,8 +191,7 @@ const SQLConverter = () => {
               flex
               items-center
               gap-1
-            "
-          >
+            ">
             {/* Ícone */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -191,8 +199,7 @@ const SQLConverter = () => {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-5 h-5"
-            >
+              className="w-5 h-5">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"

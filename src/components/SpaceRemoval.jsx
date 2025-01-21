@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import CharCounter from './CharCounter'
 
 const SpaceRemoval = () => {
   const [text, setText] = useState("");
@@ -159,6 +160,9 @@ const SpaceRemoval = () => {
           value={handleConversion(text)}
         />
       </div>
+      <span className="relative right-5 top-2 flex flex-row justify-center">
+          <CharCounter charCount={text.length} />
+      </span>
       <div
         className="
           flex

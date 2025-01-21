@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import CharCounter from "./CharCounter";
 
 const LineBreakConverter = () => {
 
@@ -9,7 +10,9 @@ const LineBreakConverter = () => {
   const contentEditableRef = useRef(null);
 
   const handleConversion = (value) => {
-    return value.replace(/[\r\n]+/g, "");
+    value.replace(/\n/g, " ");
+    value.replace(/\n/g, " ");
+    return value;
   };
 
   const copyText = () => {
@@ -87,6 +90,9 @@ const LineBreakConverter = () => {
           />
         </div>
 
+        <span className=" relative right-5 top-2 flex flex-row justify-start">
+          <CharCounter charCount={text.length} />
+        </span>
         <div
           className="
           flex

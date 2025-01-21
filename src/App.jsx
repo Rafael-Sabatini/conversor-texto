@@ -1,16 +1,16 @@
-import './App.css';  // Caso queira colocar customizações extras aqui
-import { useState } from 'react';
-import CasingConverter from './components/CasingConverter';
-import SpaceRemoval from './components/SpaceRemoval';
-import LineBreakConverter from './components/LineBreakConverter';
-import CNPJCPFConverter from './components/CNPJCPFConverter';
-import SQLConverter from './components/SQLConverter';
-import HomeScreen from './components/HomeScreen';
-import SymbolRemover from './components/SymbolRemover';
-import TextComparator from './components/TextComparator';
+import "./App.css";
+import { useState } from "react";
+import CasingConverter from "./components/CasingConverter";
+import SpaceRemoval from "./components/SpaceRemoval";
+import LineBreakConverter from "./components/LineBreakConverter";
+import CNPJCPFConverter from "./components/CNPJCPFConverter";
+import SQLConverter from "./components/SQLConverter";
+import HomeScreen from "./components/HomeScreen";
+import SymbolRemover from "./components/SymbolRemover";
+import TextComparator from "./components/TextComparator";
 
 function App() {
-  
+  //? Constante que armazena a renderização dos componentes
   const componentRender = [
     { id: 1, name: "CasingConverter" },
     { id: 2, name: "SpaceRemoval" },
@@ -22,8 +22,10 @@ function App() {
     { id: 8, name: "HomeScreen" },
   ];
 
-  // Qual componente será renderizado
-  const [changeComponent, setChangeComponent] = useState(componentRender[7].name);
+  // State para decidir componente será renderizado
+  const [changeComponent, setChangeComponent] = useState(
+    componentRender[7].name
+  );
 
   // Estado para controlar visibilidade da sidebar
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -39,7 +41,7 @@ function App() {
   const homeChange = () => setChangeComponent("HomeScreen");
 
   return (
-    <div 
+    <div
       className="
         relative 
         p-0 m-0 
@@ -63,16 +65,14 @@ function App() {
             flex items-center
             gap-2
             duration-500
-          "
-        >
+          ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-6 h-6"
-          >
+            className="w-6 h-6">
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -95,8 +95,7 @@ function App() {
           ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
         `}
         aria-label="sidebar"
-        id="sidebar"
-      >
+        id="sidebar">
         <aside className="w-full">
           <div className="flex items-center justify-between">
             <a
@@ -111,8 +110,7 @@ function App() {
                 transition-all 
                 duration-300 
                 ease-in-out
-              "
-            >
+              ">
               Conversões
             </a>
             <button
@@ -127,8 +125,7 @@ function App() {
                 transition-all
                 duration-500
                 text-lg
-              "
-            >
+              ">
               X
             </button>
           </div>
@@ -150,8 +147,7 @@ function App() {
                   transition-all 
                   duration-300 
                   ease-in-out
-                "
-              >
+                ">
                 Maiúsculo e Minúsculo
               </a>
             </li>
@@ -169,8 +165,7 @@ function App() {
                   transition-all 
                   duration-300 
                   ease-in-out
-                "
-              >
+                ">
                 Remover Espaços
               </a>
             </li>
@@ -188,8 +183,7 @@ function App() {
                   transition-all 
                   duration-300 
                   ease-in-out
-                "
-              >
+                ">
                 Remover Quebra de Linha
               </a>
             </li>
@@ -207,8 +201,7 @@ function App() {
                   transition-all 
                   duration-300 
                   ease-in-out
-                "
-              >
+                ">
                 Formatar CNPJ e CPF
               </a>
             </li>
@@ -226,8 +219,7 @@ function App() {
                   transition-all 
                   duration-300 
                   ease-in-out
-                "
-              >
+                ">
                 Formatar SQL
               </a>
 
@@ -245,8 +237,7 @@ function App() {
                   duration-300 
                   ease-in-out
                   mt-3
-                "
-              >
+                ">
                 Remover Símbolos
               </a>
 
@@ -264,8 +255,7 @@ function App() {
                   duration-300 
                   ease-in-out
                   mt-3
-                "
-              >
+                ">
                 Comparador de Textos
               </a>
             </li>
@@ -279,8 +269,7 @@ function App() {
           transition-all duration-300
           ${sidebarOpen ? "ml-[320px]" : "ml-0"}
           p-5
-        `}
-      >
+        `}>
         <div className="min-h-screen">
           {changeComponent === "CasingConverter" && <CasingConverter />}
           {changeComponent === "SpaceRemoval" && <SpaceRemoval />}

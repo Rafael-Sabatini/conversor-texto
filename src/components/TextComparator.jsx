@@ -44,16 +44,14 @@ const TextComparator = () => {
           transition-all
           duration-300
         "
-        onClick={toggleModal}
-      >
+        onClick={toggleModal}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="size-6"
-        >
+          className="size-6">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -70,8 +68,7 @@ const TextComparator = () => {
             w-screen h-screen 
             flex items-center justify-center 
             z-50
-          "
-        >
+          ">
           <div
             className="
               bg-slate-400 
@@ -80,8 +77,7 @@ const TextComparator = () => {
               max-w-2xl
               text-black
               relative
-            "
-          >
+            ">
             <button
               onClick={toggleModal}
               className="
@@ -93,8 +89,7 @@ const TextComparator = () => {
                 rounded 
                 text-white
                 hover:bg-red-600
-              "
-            >
+              ">
               X
             </button>
 
@@ -102,29 +97,36 @@ const TextComparator = () => {
             <hr className="mb-2" />
 
             <p className="mb-4">
-              Esse comparador funciona a base de cores, indicando partes diferentes entre eles.
+              Esse comparador funciona a base de cores, indicando partes
+              diferentes entre eles.
               <br />
-              Por ser uma versão beta ainda, fica meio confuso como essa conversão funciona, então aqui está uma explicação:
+              Por ser uma versão beta ainda, fica meio confuso como essa
+              conversão funciona, então aqui está uma explicação:
             </p>
 
             <h2 className="font-bold">Cores</h2>
             <hr className="mb-2" />
             <p className="mb-2">
-              <span className="bg-red-300 text-black px-1">Vermelho:</span> Indica diferenças no primeiro texto (o de cima).
-              Toda parte grifada em vermelho indica algo que está no texto 1 e não no texto 2.
+              <span className="bg-red-300 text-black px-1">Vermelho:</span>{" "}
+              Indica diferenças no primeiro texto (o de cima). Toda parte
+              grifada em vermelho indica algo que está no texto 1 e não no texto
+              2.
             </p>
             <p className="mb-4">
-              <span className="bg-green-300 text-black px-1">Verde:</span> Indica diferenças no segundo texto (o de baixo).
-              Toda parte grifada em verde indica algo que está no texto 2 e não no texto 1.
+              <span className="bg-green-300 text-black px-1">Verde:</span>{" "}
+              Indica diferenças no segundo texto (o de baixo). Toda parte
+              grifada em verde indica algo que está no texto 2 e não no texto 1.
             </p>
 
             <h2 className="font-bold">Como saber se os textos estão iguais?</h2>
             <hr className="mb-2" />
             <p>
-              Simples: caso ambos os textos estejam iguais, nenhuma parte será grifada em vermelho ou verde.
+              Simples: caso ambos os textos estejam iguais, nenhuma parte será
+              grifada em vermelho ou verde.
               <br />
               <br />
-              Por enquanto, essa é a única funcionalidade. Futuramente, pretendo implementar algo para mesclar textos a partir dessas diferenças.
+              Por enquanto, essa é a única funcionalidade. Futuramente, pretendo
+              implementar algo para mesclar textos a partir dessas diferenças.
             </p>
           </div>
         </div>

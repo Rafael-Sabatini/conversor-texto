@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import CharCounter from "./CharCounter"
 
 const SymbolRemover = () => {
 
@@ -147,7 +148,9 @@ const SymbolRemover = () => {
           value={handleConversion(text)}
         />
       </div>
-
+      <span className=" relative right-5 top-2 flex flex-row justify-start">
+          <CharCounter charCount={text.length} />
+      </span>
       {/* Buttons */}
       <div
         className="
