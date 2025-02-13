@@ -12,9 +12,6 @@ const SymbolRemover = () => {
 
   const handleConversion = (value) => {
     return activeState ? value.replace(/[^\p{L}\p{N}\s]/gu, "") : value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^\p{L}\p{N}\s]/gu, "");
-
-
-;
   };
 
   const handleActive = () => {

@@ -17,3 +17,24 @@ body{
 .render_container{
   font-size: 1.2em;
 }
+
+/* Slide-in animation */
+.slide-in {
+  animation: slideIn 1s ease-out;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  50%{
+    opacity: 0.5;
+  }
+  70% {
+    transform: translateX(0);
+  }
+  100%{
+    opacity: 100%;
+  }
+}

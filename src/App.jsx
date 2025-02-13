@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CasingConverter from "./components/CasingConverter";
 import SpaceRemoval from "./components/SpaceRemoval";
 import LineBreakConverter from "./components/LineBreakConverter";
@@ -10,22 +10,16 @@ import SymbolRemover from "./components/SymbolRemover";
 import TextComparator from "./components/TextComparator";
 
 function App() {
-  //? Constante que armazena a renderização dos componentes
-  const componentRender = [
-    { id: 1, name: "CasingConverter" },
-    { id: 2, name: "SpaceRemoval" },
-    { id: 3, name: "LineBreakConverter" },
-    { id: 4, name: "CNPJCPFConverter" },
-    { id: 5, name: "SQLConverter" },
-    { id: 6, name: "SymbolRemover" },
-    { id: 7, name: "TextComparator" },
-    { id: 8, name: "HomeScreen" },
-  ];
 
-  // State para decidir componente será renderizado
+  // Initialize state with the value from localStorage or default to "HomeScreen"
   const [changeComponent, setChangeComponent] = useState(
-    componentRender[7].name
+    localStorage.getItem("component") || "HomeScreen"
   );
+
+  // Update localStorage whenever changeComponent changes
+  useEffect(() => {
+    localStorage.setItem("component", changeComponent);
+  }, [changeComponent]);
 
   // Estado para controlar visibilidade da sidebar
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -57,11 +51,9 @@ function App() {
             sticky top-4 left-4
             bg-slate-500 text-white
             px-4 py-2
-            rounded
-            hover:rotate-180
+            rounded-lg
             hover:scale-110
             transition-all
-            z-50
             flex items-center
             gap-2
             duration-500
@@ -135,7 +127,6 @@ function App() {
           <ul className="space-y-3">
             <li>
               <a
-                href="#!"
                 onClick={casingChange}
                 className="
                   text-xl 
@@ -147,13 +138,13 @@ function App() {
                   transition-all 
                   duration-300 
                   ease-in-out
+                  cursor-pointer
                 ">
                 Maiúsculo e Minúsculo
               </a>
             </li>
             <li>
               <a
-                href="#!"
                 onClick={spaceChange}
                 className="
                   text-xl 
@@ -165,13 +156,13 @@ function App() {
                   transition-all 
                   duration-300 
                   ease-in-out
+                  cursor-pointer
                 ">
                 Remover Espaços
               </a>
             </li>
             <li>
               <a
-                href="#!"
                 onClick={lineBreakChange}
                 className="
                   text-xl 
@@ -183,13 +174,13 @@ function App() {
                   transition-all 
                   duration-300 
                   ease-in-out
+                  cursor-pointer
                 ">
                 Remover Quebra de Linha
               </a>
             </li>
             <li>
               <a
-                href="#!"
                 onClick={cnpjChange}
                 className="
                   text-xl 
@@ -201,13 +192,13 @@ function App() {
                   transition-all 
                   duration-300 
                   ease-in-out
+                  cursor-pointer
                 ">
                 Formatar CNPJ e CPF
               </a>
             </li>
             <li>
               <a
-                href="#!"
                 onClick={sqlChange}
                 className="
                   text-xl 
@@ -219,12 +210,12 @@ function App() {
                   transition-all 
                   duration-300 
                   ease-in-out
+                  cursor-pointer
                 ">
                 Formatar SQL
               </a>
 
               <a
-                href="#!"
                 onClick={symbolChange}
                 className="
                   text-xl 
@@ -237,12 +228,12 @@ function App() {
                   duration-300 
                   ease-in-out
                   mt-3
+                  cursor-pointer
                 ">
                 Remover Símbolos
               </a>
 
               <a
-                href="#!"
                 onClick={textCompareChange}
                 className="
                   text-xl 
@@ -255,6 +246,7 @@ function App() {
                   duration-300 
                   ease-in-out
                   mt-3
+                  cursor-pointer
                 ">
                 Comparador de Textos
               </a>
@@ -271,14 +263,47 @@ function App() {
           p-5
         `}>
         <div className="min-h-screen">
-          {changeComponent === "CasingConverter" && <CasingConverter />}
-          {changeComponent === "SpaceRemoval" && <SpaceRemoval />}
-          {changeComponent === "LineBreakConverter" && <LineBreakConverter />}
-          {changeComponent === "CNPJCPFConverter" && <CNPJCPFConverter />}
-          {changeComponent === "SQLConverter" && <SQLConverter />}
-          {changeComponent === "SymbolRemover" && <SymbolRemover />}
-          {changeComponent === "TextComparator" && <TextComparator />}
-          {changeComponent === "HomeScreen" && <HomeScreen />}
+          {/* Add a key prop to force re-render and trigger animation */}
+          {changeComponent === "CasingConverter" && (
+            <div key="CasingConverter" className="slide-in">
+              <CasingConverter />
+            </div>
+          )}
+          {changeComponent === "SpaceRemoval" && (
+            <div key="SpaceRemoval" className="slide-in">
+              <SpaceRemoval />
+            </div>
+          )}
+          {changeComponent === "LineBreakConverter" && (
+            <div key="LineBreakConverter" className="slide-in">
+              <LineBreakConverter />
+            </div>
+          )}
+          {changeComponent === "CNPJCPFConverter" && (
+            <div key="CNPJCPFConverter" className="slide-in">
+              <CNPJCPFConverter />
+            </div>
+          )}
+          {changeComponent === "SQLConverter" && (
+            <div key="SQLConverter" className="slide-in">
+              <SQLConverter />
+            </div>
+          )}
+          {changeComponent === "SymbolRemover" && (
+            <div key="SymbolRemover" className="slide-in">
+              <SymbolRemover />
+            </div>
+          )}
+          {changeComponent === "TextComparator" && (
+            <div key="TextComparator" className="slide-in">
+              <TextComparator />
+            </div>
+          )}
+          {changeComponent === "HomeScreen" && (
+            <div key="HomeScreen" className="slide-in">
+              <HomeScreen />
+            </div>
+          )}
         </div>
       </div>
     </div>
