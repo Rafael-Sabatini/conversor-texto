@@ -6,17 +6,7 @@ O ponto desse projeto é desafiar minhas habilidades recém-adquiridas com React
 
 ## Funcionalidade
 
-Para utilizar esse projeto, basta acessar o link do Github e selecionar um tipo de conversão.
-
-## Funções planejadas
-
-Tenho algumas funções em mente, ambas visuais e aplicáveis, algumas mais importantes são:
-
-- [ ] Melhoria visual do site no geral
-- [ ] Responsividade para dispositivos mobile
-- [ ] Conexão e armazenamento de informações
-
-De restante acredito que são implementações pequenas.
+Para utilizar esse projeto, basta acessar o [link](https://rafael-sabatini.github.io/conversor-texto/) do Github e selecionar um tipo de conversão.
 
 ## Sugestões e bugs
 
