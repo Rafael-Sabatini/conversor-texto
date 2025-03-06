@@ -267,7 +267,7 @@ function CasingConverter() {
         hideProgressBar={false}
         newestOnTop
         closeOnClick
-        theme="dark"
+        theme="colored"
         transition={Bounce}
         pauseOnFocusLoss={false}
         pauseOnHover={false}

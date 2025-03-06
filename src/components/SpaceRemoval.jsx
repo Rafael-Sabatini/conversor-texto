@@ -10,7 +10,7 @@ const SpaceRemoval = () => {
   const contentEditableRef = useRef(null);
 
   const handleConversion = (value) => {
-    return activeState ?  value.replace(/\s+$/, "") : value.replace(/\s+/g, "");
+    return activeState ? value.replace(/\s+$/, "") : value.replace(/\s+/g, "");
   };
 
   const handleActive = () => {
@@ -41,19 +41,19 @@ const SpaceRemoval = () => {
   return (
     <div
       className="
-        flex
-        flex-col
-        w-full
-        p-10
-        text-center
+        container 
+        mx-auto 
+        px-4 
+        py-8
+        flex 
+        flex-col 
+        items-center 
         justify-center
-        align-center      
       ">
+      <h1 className="text-4xl font-bold mb-5">Remoção de Espaços</h1>
+      <h2 className="text-lg mb-5">Selecione uma opção:</h2>
 
-      <h1 className="font-bold text-4xl mb-10">Remoção de Espaços</h1>
-      <h2>Selecione uma opção</h2>
-
-      <label className="inline-flex items-center justify-center cursor-pointer my-10">
+      <label className="inline-flex items-center cursor-pointer mb-10">
         <span
           className="
             mr-3 
@@ -112,35 +112,35 @@ const SpaceRemoval = () => {
         </span>
       </label>
 
-      <div 
+      {/* Textareas */}
+      <div
         className="
           flex
-          flex-row
+          flex-col
+          md:flex-row
           w-full
+          max-w-5xl
           gap-4
-        "
-        >
+        ">
         <textarea
           placeholder="Digite seu texto aqui"
           ref={contentEditableRef}
           onInput={(e) => setText(e.target.value)}
           className="
-          bg-slate-200
-          rounded
-          p-3
-          text-black 
-          w-full
-          max-w-screen-sm
-          h-64
-          drop-shadow-lg
-          whitespace-pre-wrap
-          break-all
-          resize-none
-          shadow-md shadow-slate-500
-        "
+            bg-slate-200
+            rounded
+            p-3
+            text-black 
+            w-full
+            h-64
+            drop-shadow-lg
+            whitespace-pre-wrap
+            break-all
+            resize-none
+            shadow-md shadow-slate-500
+          "
         />
-
-        <textarea 
+        <textarea
           disabled
           placeholder="Texto convertido"
           className="
@@ -149,7 +149,6 @@ const SpaceRemoval = () => {
             p-3
             text-black 
             w-full
-            max-w-screen-sm
             h-64
             drop-shadow-lg
             whitespace-pre-wrap
@@ -160,14 +159,18 @@ const SpaceRemoval = () => {
           value={handleConversion(text)}
         />
       </div>
-      <span className="relative right-5 top-2 flex flex-row justify-center">
-          <CharCounter charCount={text.length} />
+
+      <span className="relative right-5 top-2 flex flex-row justify-start">
+        <CharCounter charCount={text.length} />
       </span>
+
+      {/* Buttons */}
       <div
         className="
           flex
           flex-row
           w-full
+          max-w-5xl
           mt-5
           justify-end
         ">
@@ -257,13 +260,14 @@ const SpaceRemoval = () => {
           </svg>
         </button>
       </div>
+
       <ToastContainer
         position="top-right"
         autoClose={3000}
         hideProgressBar={false}
         newestOnTop
         closeOnClick
-        theme="dark"
+        theme="colored"
         transition={Bounce}
         pauseOnFocusLoss={false}
         pauseOnHover={false}

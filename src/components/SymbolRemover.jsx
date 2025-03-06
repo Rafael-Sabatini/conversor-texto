@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import CharCounter from "./CharCounter"
+import CharCounter from "./CharCounter";
 
 const SymbolRemover = () => {
 
@@ -39,9 +39,18 @@ const SymbolRemover = () => {
     }
   };
 
-
   return (
-    <div className="flex flex-col justify-center items-center p-4">
+    <div
+      className="
+        container 
+        mx-auto 
+        px-4 
+        py-8
+        flex 
+        flex-col 
+        items-center 
+        justify-center
+      ">
       <h1 className="text-4xl font-bold mb-5">Remoção de Símbolos</h1>
       <h2 className="text-lg mb-5">Selecione o tipo de conversão desejada</h2>
 
@@ -105,7 +114,15 @@ const SymbolRemover = () => {
       </label>
 
       {/* Textareas */}
-      <div className="flex flex-row w-full gap-4 ">
+      <div
+        className="
+          flex
+          flex-col
+          md:flex-row
+          w-full
+          max-w-5xl
+          gap-4
+        ">
         <textarea
           placeholder="Digite seu texto com símbolos aqui:"
           ref={contentEditableRef}
@@ -116,7 +133,6 @@ const SymbolRemover = () => {
             p-3
             text-black 
             w-full
-            max-w-screen-sm
             h-64
             drop-shadow-lg
             whitespace-pre-wrap
@@ -134,7 +150,6 @@ const SymbolRemover = () => {
             p-3
             text-black 
             w-full
-            max-w-screen-sm
             h-64
             drop-shadow-lg
             whitespace-pre-wrap
@@ -145,8 +160,8 @@ const SymbolRemover = () => {
           value={handleConversion(text)}
         />
       </div>
-      <span className=" relative right-5 top-2 flex flex-row justify-start">
-          <CharCounter charCount={text.length} />
+      <span className="relative right-5 top-2 flex flex-row justify-start">
+        <CharCounter charCount={text.length} />
       </span>
       {/* Buttons */}
       <div
@@ -154,6 +169,7 @@ const SymbolRemover = () => {
           flex
           flex-row
           w-full
+          max-w-5xl
           mt-5
           justify-end
         ">
@@ -250,7 +266,7 @@ const SymbolRemover = () => {
         hideProgressBar={false}
         newestOnTop
         closeOnClick
-        theme="dark"
+        theme="colored"
         transition={Bounce}
         pauseOnFocusLoss={false}
         pauseOnHover={false}
